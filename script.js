@@ -24,7 +24,7 @@ function guardarProgreso() {
 
 // Actualizar el contador
 function actualizarContador() {
-    contadorTexto.textContent = `${razonesVistas.length} / ${razones.length} razones descubiertas`;
+    contadorTexto.textContent = `${razonesVistas.length} / ${razones.length} razones`;
 }
 
 // Obtener una razón aleatoria que no se haya visto
@@ -32,11 +32,11 @@ function obtenerRazonAleatoria() {
     // Si ya se vieron todas, reiniciar
     if (razonesVistas.length === razones.length) {
         razonesVistas = [];
-        mostrarMensajeEspecial("¡Has visto todas las razones! 💕 Reiniciando...");
+        mostrarMensajeEspecial("Has descubierto todas las razones. Reiniciando...");
         setTimeout(() => {
             guardarProgreso();
             actualizarContador();
-        }, 2000);
+        }, 2500);
         return null;
     }
 
@@ -89,7 +89,7 @@ function mostrarMensajeEspecial(mensaje) {
     setTimeout(() => {
         razonDisplay.textContent = mensaje;
         razonDisplay.style.opacity = '1';
-    }, 300);
+    }, 400);
 }
 
 // Crear corazones flotantes cuando se presiona el botón
@@ -98,34 +98,41 @@ function crearCorazones(elemento) {
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
     
-    for (let i = 0; i < 5; i++) {
+    // Crear menos partículas pero más elegantes
+    for (let i = 0; i < 8; i++) {
         const corazon = document.createElement('div');
         corazon.classList.add('corazon-click');
-        corazon.textContent = ['💕', '💗', '💖', '❤️', '💝'][i % 5];
+        corazon.textContent = '•';
         
-        const angle = (Math.PI * 2 * i) / 5;
-        const distance = 30;
+        const angle = (Math.PI * 2 * i) / 8;
+        const distance = 40;
         const x = centerX + Math.cos(angle) * distance;
         const y = centerY + Math.sin(angle) * distance;
         
         corazon.style.left = x + 'px';
         corazon.style.top = y + 'px';
         
+        // Dirección aleatoria para cada partícula
+        const tx = (Math.random() - 0.5) * 100;
+        const ty = (Math.random() - 0.5) * 100 - 50;
+        corazon.style.setProperty('--tx', tx + 'px');
+        corazon.style.setProperty('--ty', ty + 'px');
+        
         document.body.appendChild(corazon);
         
         setTimeout(() => {
             corazon.remove();
-        }, 1500);
+        }, 1000);
     }
 }
 
 // Reiniciar el contador
 function reiniciarContador() {
-    if (confirm('¿Estás seguro de que quieres reiniciar el contador de razones vistas?')) {
+    if (confirm('¿Reiniciar el progreso?')) {
         razonesVistas = [];
         guardarProgreso();
         actualizarContador();
-        razonDisplay.textContent = 'Contador reiniciado. ¡Presiona el botón para ver una razón!';
+        razonDisplay.textContent = 'Progreso reiniciado. Presiona el botón para descubrir una razón.';
         razonDisplay.style.opacity = '1';
     }
 }
