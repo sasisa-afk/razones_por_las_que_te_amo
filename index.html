@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razones por las que te amo 💕</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Corazones flotantes de fondo -->
+    <div class="corazones-fondo">
+        <span class="corazon">💕</span>
+        <span class="corazon">💗</span>
+        <span class="corazon">💖</span>
+        <span class="corazon">💕</span>
+        <span class="corazon">💗</span>
+        <span class="corazon">💖</span>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 class="titulo-principal">💕 ¿Por qué te amo? 💕</h1>
+            <p class="subtitulo">Presiona el botón para descubrir una razón</p>
+        </header>
+
+        <main>
+            <div class="razon-container">
+                <div id="razon-display" class="razon-texto">
+                    Presiona el botón para ver una razón de por qué eres tan especial para mí...
+                </div>
+                <div class="contador">
+                    <span id="contador-texto">0 / 200 razones descubiertas</span>
+                </div>
+            </div>
+
+            <button id="btn-razon" class="boton-principal">
+                Ver una razón
+            </button>
+
+            <div class="opciones">
+                <button id="btn-reset" class="boton-secundario">
+                    🔄 Reiniciar contador
+                </button>
+            </div>
+        </main>
+
+        <footer>
+            <p class="pie-pagina">Con amor infinito 💖</p>
+        </footer>
+    </div>
+
+    <script src="razones.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

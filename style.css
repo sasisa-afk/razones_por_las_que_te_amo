@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Corazones flotantes de fondo */
+.corazones-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.corazon {
+    position: absolute;
+    font-size: 30px;
+    opacity: 0.3;
+    animation: flotar 15s infinite ease-in-out;
+}
+
+.corazon:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.corazon:nth-child(2) {
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.corazon:nth-child(3) {
+    left: 50%;
+    animation-delay: 4s;
+}
+
+.corazon:nth-child(4) {
+    left: 70%;
+    animation-delay: 1s;
+}
+
+.corazon:nth-child(5) {
+    left: 85%;
+    animation-delay: 3s;
+}
+
+.corazon:nth-child(6) {
+    left: 20%;
+    animation-delay: 5s;
+}
+
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-20vh) rotate(180deg);
+        opacity: 0.5;
+    }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+    animation: aparecer 0.6s ease-out;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo-principal {
+    font-size: 2.5em;
+    color: #764ba2;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitulo {
+    font-size: 1.1em;
+    color: #666;
+    font-style: italic;
+}
+
+main {
+    text-align: center;
+}
+
+.razon-container {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.razon-texto {
+    font-size: 1.3em;
+    color: #333;
+    line-height: 1.6;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.razon-texto.nueva-razon {
+    animation: apareceRazon 0.8s ease-out;
+}
+
+@keyframes apareceRazon {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.contador {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #764ba2;
+    font-weight: bold;
+}
+
+.boton-principal {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.3em;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(118, 75, 162, 0.4);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.boton-principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(118, 75, 162, 0.6);
+}
+
+.boton-principal:active {
+    transform: translateY(-1px);
+}
+
+.opciones {
+    margin-top: 20px;
+}
+
+.boton-secundario {
+    background: transparent;
+    color: #764ba2;
+    border: 2px solid #764ba2;
+    padding: 12px 30px;
+    font-size: 1em;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.boton-secundario:hover {
+    background: #764ba2;
+    color: white;
+    transform: translateY(-2px);
+}
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.pie-pagina {
+    color: #999;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 25px;
+    }
+
+    .titulo-principal {
+        font-size: 2em;
+    }
+
+    .razon-texto {
+        font-size: 1.1em;
+    }
+
+    .boton-principal {
+        padding: 15px 40px;
+        font-size: 1.1em;
+    }
+
+    .razon-container {
+        min-height: 180px;
+        padding: 20px;
+    }
+}
+
+/* Animación de corazones cuando se presiona el botón */
+@keyframes corazones {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+.corazon-click {
+    position: fixed;
+    font-size: 30px;
+    pointer-events: none;
+    animation: corazones 1.5s ease-out forwards;
+    z-index: 1000;
+}
